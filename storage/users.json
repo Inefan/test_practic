@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "username": "oleg",
+    "passwordHash": "$2a$10$e8R3v9... (хешований пароль '12345')",
+    "name": "Oleg",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "username": "pavlo",
+    "passwordHash": "$2a$10$k8S4w1...",
+    "name": "Pavlo",
+    "role": "user"
+  }
+]
