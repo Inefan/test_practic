@@ -11,6 +11,7 @@ const cart = useCartStore()
         <RouterLink class="nav-link" to="/">Товари</RouterLink>
         <RouterLink class="nav-link" to="/cart">
           Кошик
+          <RouterLink class="nav-link" to="/users">Користувачі</RouterLink>
           <span v-if="cart.totalCount" class="badge bg-primary">{{ cart.totalCount }}</span>
           <RouterLink class="nav-link" to="/orders">Замовлення</RouterLink>
         </RouterLink>
