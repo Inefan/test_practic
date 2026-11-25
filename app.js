@@ -424,9 +424,10 @@ app.use((err, req, res, next) => {
 // Запуск сервера
 // ==================================================
 
-app.listen(PORT, () => {
+if (require.main === module) {
+  app.listen(3000, () => {
+    console.log('Server is running at http://127.0.0.1:3000');
+  });
+}
 
-    console.log(
-        `Server is running at http://127.0.0.1:${PORT}`
-    );
-});
+module.exports = app; // тести зможуть підключити app

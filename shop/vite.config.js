@@ -1,7 +1,8 @@
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import vue from '@vitejs/plugin-vue'
+
 
 export default defineConfig({
   plugins: [vue(), vueDevTools()],
@@ -18,5 +19,10 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
+  },
+    // Налаштування Vitest (юніт-тести)
+  test: {
+    environment: 'jsdom',             // «браузер» для тестів компонентів
+    include: ['src/**/*.test.js'],    // де шукати тести
   },
 })

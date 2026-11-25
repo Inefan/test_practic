@@ -2,7 +2,7 @@
 // const dbCached = new DatabaseSync(':memory:')
 const express = require('express');
 const { DatabaseSync } = require('node:sqlite');
-const db = new DatabaseSync('app.db');
+const db = new DatabaseSync(process.env.DB_FILE || 'app.db');
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
@@ -113,6 +113,12 @@ app.get('/orders', (req, res) => {
   res.json(orders);
 });
 
-app.listen(3000, () => {
-  console.log('Server is running at http://127.0.0.1:3000');
-});
+// Запускаємо сервер лише коли файл запущено напряму (node app.js),
+// а не коли його підключили в тестах
+if (require.main === module) {
+  app.listen(3000, () => {
+    console.log('Server is running at http://127.0.0.1:3000');
+  });
+}
+
+module.exports = app; // тести зможуть підключити app
